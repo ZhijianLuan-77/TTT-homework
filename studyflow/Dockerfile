@@ -1,0 +1,7 @@
+FROM python:3.12-slim
+WORKDIR /app
+COPY server.py ./
+COPY web/ ./web/
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 HOST=0.0.0.0 PORT=8001 DATA_DIR=/app/data
+EXPOSE 8001
+CMD ["python", "server.py"]
