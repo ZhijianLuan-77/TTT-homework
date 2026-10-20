@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#181a31">
+  <meta name="description" content="StudyFlow——拥有真实 Python API 和 SQLite 数据库的个人学习与项目协作管理系统。">
+  <title>StudyFlow · 学习项目管理系统</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="auth-screen" class="auth-shell" hidden>
+    <div class="auth-feature">
+      <div class="auth-brand"><span class="brand-symbol">S</span><span>StudyFlow <small>STUDY MANAGEMENT SYSTEM</small></span></div>
+      <div class="feature-body"><span class="eyebrow-light">A BETTER WAY TO LEARN · 2026</span>
+        <h1>把每一次努力，<br>变成<span>看得见的进步。</span></h1>
+        <p>从项目规划到任务执行，从专注计时到学习复盘。让目标有路径，让努力有记录。</p>
+        <div class="feature-stat"><span class="feature-icon">↗</span><span><b>全栈学习管理平台</b><small>Python API · SQLite · JavaScript</small></span></div>
+      </div>
+      <div class="auth-foot">DESIGNED FOR FOCUSED LEARNING <span>© 2026 StudyFlow</span></div>
+    </div>
+    <main class="auth-form-area">
+      <div class="auth-panel">
+        <div class="mobile-brand">StudyFlow <span>· 学习工作台</span></div>
+        <span class="eyebrow">WELCOME TO STUDYFLOW</span>
+        <h2 id="auth-title">欢迎回来</h2>
+        <p class="muted" id="auth-desc">登录后继续管理你的计划、任务与专注记录。</p>
+        <form id="auth-form" class="stack" autocomplete="on">
+          <label>用户名<input name="username" maxlength="32" autocomplete="username" placeholder="请输入用户名" required></label>
+          <label>密码<input name="password" type="password" minlength="8" maxlength="128" autocomplete="current-password" placeholder="至少 8 位字符" required></label>
+          <p id="auth-error" class="form-error" role="alert" hidden></p>
+          <button type="submit" class="button primary block" id="auth-submit">登录工作台 <span>→</span></button>
+        </form>
+        <p class="auth-toggle"><span id="auth-alt">还没有账号？</span> <button type="button" class="text-button" id="auth-switch">立即注册</button></p>
+        <div class="auth-explain"><span class="small-dot"></span>新账号自动生成可编辑的示例任务和统计数据，方便演示。</div>
+      </div>
+    </main>
+  </div>
+  <div id="app-shell" class="shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-symbol">S</span><span>StudyFlow<small>WORK SMARTER. LEARN BETTER.</small></span></div>
+      <div class="sidebar-caption">工作空间 <span>WORKSPACE</span></div>
+      <nav class="nav" aria-label="主菜单">
+        <button data-page="overview" class="nav-link selected"><span class="nav-icon">▦</span>总览仪表盘</button>
+        <button data-page="board" class="nav-link"><span class="nav-icon">☷</span>任务看板</button>
+        <button data-page="projects" class="nav-link"><span class="nav-icon">▤</span>项目管理</button>
+        <button data-page="focus" class="nav-link"><span class="nav-icon">◷</span>专注空间</button>
+        <button data-page="notes" class="nav-link"><span class="nav-icon">▧</span>学习笔记</button>
+        <button data-page="analytics" class="nav-link"><span class="nav-icon">◫</span>数据分析</button>
+      </nav>
+      <div class="sidebar-lower">
+        <div class="side-info"><span class="sparkle">✳</span><strong>每个小目标，都值得被记录。</strong><p>让计划成为行动，让行动沉淀为成果。</p></div>
+        <div class="side-user"><span class="avatar" id="side-avatar">学</span><span class="user-lines"><b id="side-name">学习者</b><small>个人学习空间</small></span><button id="logout" title="退出登录" aria-label="退出登录">↪</button></div>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div class="topbar-heading"><button id="menu-toggle" class="menu-toggle" aria-label="展开导航">☰</button><span>个人工作台</span><span class="topbar-slash">/</span><b id="current-page">总览仪表盘</b></div><div class="topbar-right"><span class="online-indicator"><i></i> 数据库已连接</span><button id="export-data" class="icon-action" title="导出完整数据备份">↓ <span>导出数据</span></button><span class="top-avatar" id="top-avatar">学</span></div></header>
+      <div class="content" id="page-content" aria-live="polite"></div>
+      <footer class="app-footer"><span>StudyFlow · 全栈学习管理平台</span><span>Python 3 · SQLite · REST API</span></footer>
+    </main>
+  </div>
+  <div id="modal-root" hidden></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
