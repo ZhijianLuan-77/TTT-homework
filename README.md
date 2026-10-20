@@ -40,3 +40,10 @@
 ## GitHub About
 
 本项目的仓库介绍应为“汤甜甜的生成式大模型辅助编程实训作品集，包含待办事项、Markdown笔记、天气查询、倒计时、随机点名及工程文档。”
+
+
+## 期末综合考核：StudyFlow 全栈项目（2026-10-20）
+
+本仓库新增独立项目 [`studyflow/`](studyflow/) —— StudyFlow 全栈学习项目管理系统，包含原生 JavaScript 前端、Python REST API、SQLite 数据库、用户登录、任务看板、项目管理、笔记、专注计时、学习数据统计、8 组集成测试，以及独立 PRD/技术设计/测试报告与录屏脚本。
+
+**本地启动：** `cd studyflow && python server.py`，浏览器打开 `http://127.0.0.1:8001/` 并创建账号。**运行测试：** `cd studyflow && python -m unittest discover -s tests -v`。仓库根目录 `render.yaml` 与 `studyflow/Dockerfile` 提供 Render 部署配置，公开云端地址需完成实际平台部署后验证。新增代码没有替换仓库根目录原有的课程作品集网站。
